@@ -22,7 +22,12 @@ const migratedRules = {
     "grouped-accessor-pairs": "error",
     "guard-for-in": "error",
     "id-denylist": "error",
-    "id-length": "error",
+    "id-length": [
+        "error",
+        {
+            exceptions: ["T", "K", "i", "j", "x", "y", "z"]
+        }
+    ],
     "id-match": "error",
     "init-declarations": "error",
     "logical-assignment-operators": "error",
