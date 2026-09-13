@@ -1,6 +1,6 @@
 {
   "name": "@robot-inventor/oxlint-config",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "My Oxlint config preset",
   "homepage": "https://github.com/Robot-Inventor/oxlint-config#readme",
   "bugs": {
