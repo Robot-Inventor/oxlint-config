@@ -1,5 +1,11 @@
 # @robot-inventor/oxlint-config
 
+## 0.2.0
+
+### Minor Changes
+
+- [#10](https://github.com/Robot-Inventor/oxlint-config/pull/10) [`1b3615e`](https://github.com/Robot-Inventor/oxlint-config/commit/1b3615e307bcbf56072e43090016d5b364e00cf4) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: change `jsxMaxDepth` to 4
+
 ## 0.1.1
 
 ### Patch Changes
