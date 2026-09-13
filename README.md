@@ -1,6 +1,6 @@
 # oxlint-config
 
-[@Robot-Inventor](https://github.com/Robot-Inventor/)'s OXLint config presets.
+[@Robot-Inventor](https://github.com/Robot-Inventor/)'s Oxlint config presets.
 
 ## Installation
 
@@ -31,8 +31,7 @@ The `NoJSDoc` presets check existing JSDoc comments but do not require JSDoc on 
 
 ## Overriding rules
 
-OXLint only inherits `rules`, `plugins`, and `overrides` through its `extends` property. Use object spread so
-that type-aware linting, settings, and JavaScript plugin registrations are retained:
+Do not use a preset only through `extends: [preset]`; root-level options and settings would not be inherited.
 
 ```ts
 import { oxlintNextConfigNoJSDoc } from "@robot-inventor/oxlint-config";
@@ -45,5 +44,3 @@ export default defineConfig({
     }
 });
 ```
-
-Do not use a preset only through `extends: [preset]`; root-level options and settings would not be inherited.
