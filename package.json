@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "oxlint src oxlint.config.ts",
+    "lint": "tsc && oxlint src oxlint.config.ts",
     "format": "prettier --write \"src/**/*.ts\" oxlint.config.ts",
     "format:check": "prettier --check \"src/**/*.ts\" oxlint.config.ts",
     "ci:version": "changeset version",
