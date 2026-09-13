@@ -53,7 +53,10 @@ const commonSettings = {
 const reactSettings = {
     ...commonSettings,
     "react-doctor": {
-        capabilities: ["react-compiler"]
+        capabilities: ["react-compiler"],
+        jsxMaxDepth: {
+            max: 4
+        }
     }
 } as const satisfies NonNullable<OxlintConfig["settings"]>;
 
