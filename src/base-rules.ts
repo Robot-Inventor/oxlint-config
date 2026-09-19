@@ -34,10 +34,20 @@ const migratedRules = {
     "max-classes-per-file": "error",
     "max-depth": "error",
     "max-lines": "error",
-    "max-lines-per-function": "error",
+    "max-lines-per-function": [
+        "error",
+        {
+            max: 100
+        }
+    ],
     "max-nested-callbacks": "error",
     "max-params": "error",
-    "max-statements": "error",
+    "max-statements": [
+        "error",
+        {
+            max: 20
+        }
+    ],
     "new-cap": "error",
     "no-alert": "error",
     "no-array-constructor": "error",
