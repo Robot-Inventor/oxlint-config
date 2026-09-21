@@ -1,5 +1,19 @@
 # @robot-inventor/oxlint-config
 
+## 0.4.0
+
+### Minor Changes
+
+- [#29](https://github.com/Robot-Inventor/oxlint-config/pull/29) [`1b68190`](https://github.com/Robot-Inventor/oxlint-config/commit/1b681904f191144c04259f6dbb2876e412ddf7ff) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: disable `consistent-return`
+
+### Patch Changes
+
+- [#25](https://github.com/Robot-Inventor/oxlint-config/pull/25) [`4c0896d`](https://github.com/Robot-Inventor/oxlint-config/commit/4c0896de9b7f4abb769261084340d2a23afc3f4b) Thanks [@renovate](https://github.com/apps/renovate)! - Update dependency eslint to ^10.11.0
+
+- [#22](https://github.com/Robot-Inventor/oxlint-config/pull/22) [`66f0079`](https://github.com/Robot-Inventor/oxlint-config/commit/66f00798058ea9d69b365fd40f52d6d86f819b1a) Thanks [@renovate](https://github.com/apps/renovate)! - Update dependency oxlint-tsgolint to ^7.0.2002
+
+- [#24](https://github.com/Robot-Inventor/oxlint-config/pull/24) [`83e7aab`](https://github.com/Robot-Inventor/oxlint-config/commit/83e7aab5ae0343eb5e623a6efd87003608956924) Thanks [@renovate](https://github.com/apps/renovate)! - Update dependency eslint-plugin-jsdoc to ^64.5.3
+
 ## 0.3.0
 
 ### Minor Changes
