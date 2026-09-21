@@ -241,7 +241,7 @@ const migratedRules = {
     "import/max-dependencies": "error",
     "import/newline-after-import": "error",
     "import/no-unassigned-import": "error",
-    "typescript/consistent-return": "error",
+    "typescript/consistent-return": "off",
     "typescript/dot-notation": "error",
     "typescript/await-thenable": "error",
     "typescript/ban-ts-comment": [
