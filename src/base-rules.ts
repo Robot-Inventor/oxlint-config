@@ -5,7 +5,7 @@ const migratedRules = {
     "array-callback-return": "error",
     "arrow-body-style": "error",
     "block-scoped-var": "error",
-    "capitalized-comments": "error",
+    "capitalized-comments": "off",
     "class-methods-use-this": "error",
     complexity: "error",
     "constructor-super": "error",
