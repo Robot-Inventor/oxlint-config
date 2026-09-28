@@ -1,5 +1,15 @@
 # @robot-inventor/oxlint-config
 
+## 0.4.1
+
+### Patch Changes
+
+- [#32](https://github.com/Robot-Inventor/oxlint-config/pull/32) [`ebf5b6c`](https://github.com/Robot-Inventor/oxlint-config/commit/ebf5b6c72bdb7d4eb25d4104671ad9379d618c4c) Thanks [@renovate](https://github.com/apps/renovate)! - chore: update dependency @next/eslint-plugin-next to ^16.3.6
+
+- [#34](https://github.com/Robot-Inventor/oxlint-config/pull/34) [`e1da895`](https://github.com/Robot-Inventor/oxlint-config/commit/e1da8954f3a9f132da9ee691c4a7e9aae5d056ff) Thanks [@renovate](https://github.com/apps/renovate)! - chore: update dependency oxlint-tsgolint to ^7.0.2003
+
+- [#31](https://github.com/Robot-Inventor/oxlint-config/pull/31) [`c898084`](https://github.com/Robot-Inventor/oxlint-config/commit/c898084502d9ee508427a0ca1f59bd02c4d34718) Thanks [@renovate](https://github.com/apps/renovate)! - chore: update dependency oxlint to ^1.85.0
+
 ## 0.4.0
 
 ### Minor Changes
