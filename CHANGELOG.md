@@ -1,5 +1,11 @@
 # @robot-inventor/oxlint-config
 
+## 0.4.2
+
+### Patch Changes
+
+- [#37](https://github.com/Robot-Inventor/oxlint-config/pull/37) [`71532b2`](https://github.com/Robot-Inventor/oxlint-config/commit/71532b2d312ffb458a3f8530fc628d323c3f8378) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: disable `capitalized-comments` rule
+
 ## 0.4.1
 
 ### Patch Changes
