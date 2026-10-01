@@ -1,5 +1,19 @@
 # @robot-inventor/oxlint-config
 
+## 0.5.0
+
+### Minor Changes
+
+- [#41](https://github.com/Robot-Inventor/oxlint-config/pull/41) [`8999ea4`](https://github.com/Robot-Inventor/oxlint-config/commit/8999ea4b8ab436d0aa93bc5c8e741e291c23e4de) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: exclude CSS, `server-only`, and `client-only` from the `no-unassigned-import` rule
+
+### Patch Changes
+
+- [#43](https://github.com/Robot-Inventor/oxlint-config/pull/43) [`cea5dec`](https://github.com/Robot-Inventor/oxlint-config/commit/cea5dec10877698cbee47bd56e372d2ba76e4f9e) Thanks [@renovate](https://github.com/apps/renovate)! - Update dependency @next/eslint-plugin-next to ^16.3.7
+
+- [#39](https://github.com/Robot-Inventor/oxlint-config/pull/39) [`623bd7b`](https://github.com/Robot-Inventor/oxlint-config/commit/623bd7bd1afca2984c7b5d4e3d8e810287f475f1) Thanks [@renovate](https://github.com/apps/renovate)! - Update dependency oxlint to ^1.86.0
+
+- [#40](https://github.com/Robot-Inventor/oxlint-config/pull/40) [`12e211f`](https://github.com/Robot-Inventor/oxlint-config/commit/12e211f9561be8f8f2b759b30619794c25773a9d) Thanks [@renovate](https://github.com/apps/renovate)! - chore: update dependency eslint-plugin-jsdoc to v65
+
 ## 0.4.2
 
 ### Patch Changes
