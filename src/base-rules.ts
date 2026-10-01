@@ -240,7 +240,12 @@ const migratedRules = {
     "import/group-exports": "error",
     "import/max-dependencies": "error",
     "import/newline-after-import": "error",
-    "import/no-unassigned-import": "error",
+    "import/no-unassigned-import": [
+        "error",
+        {
+            allow: ["**/*.css", "server-only", "client-only"]
+        }
+    ],
     "typescript/consistent-return": "off",
     "typescript/dot-notation": "error",
     "typescript/await-thenable": "error",
