@@ -1,5 +1,15 @@
 # @robot-inventor/oxlint-config
 
+## 0.5.1
+
+### Patch Changes
+
+- [#44](https://github.com/Robot-Inventor/oxlint-config/pull/44) [`1ee198e`](https://github.com/Robot-Inventor/oxlint-config/commit/1ee198ec3ac0905d876e0827779614675da53f97) Thanks [@renovate](https://github.com/apps/renovate)! - Update dependency eslint-plugin-jsdoc to ^65.0.1
+
+- [#46](https://github.com/Robot-Inventor/oxlint-config/pull/46) [`0a354f2`](https://github.com/Robot-Inventor/oxlint-config/commit/0a354f2df36e987e64736e92550c2d09530a3da7) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: exclude `S` from `id-length` checks
+
+- [#45](https://github.com/Robot-Inventor/oxlint-config/pull/45) [`dcfb709`](https://github.com/Robot-Inventor/oxlint-config/commit/dcfb709aea7e9269800a136b3346728a9850af2a) Thanks [@renovate](https://github.com/apps/renovate)! - Update dependency @next/eslint-plugin-next to ^16.3.8
+
 ## 0.5.0
 
 ### Minor Changes
