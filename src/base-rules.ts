@@ -25,7 +25,7 @@ const migratedRules = {
     "id-length": [
         "error",
         {
-            exceptions: ["T", "K", "i", "j", "x", "y", "z"]
+            exceptions: ["S", "T", "K", "i", "j", "x", "y", "z"]
         }
     ],
     "id-match": "error",
