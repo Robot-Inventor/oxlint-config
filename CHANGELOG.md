@@ -1,5 +1,21 @@
 # @robot-inventor/oxlint-config
 
+## 0.5.2
+
+### Patch Changes
+
+- [#53](https://github.com/Robot-Inventor/oxlint-config/pull/53) [`d6eacb0`](https://github.com/Robot-Inventor/oxlint-config/commit/d6eacb0477da69ea5238274df18a78342b2eeb58) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @next/eslint-plugin-next to ^16.4.2
+
+- [#51](https://github.com/Robot-Inventor/oxlint-config/pull/51) [`67b5f11`](https://github.com/Robot-Inventor/oxlint-config/commit/67b5f117ba8b324260fb22618661d9fdfe8cfce9) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency oxlint-plugin-react-doctor to ^0.9.17
+
+- [#52](https://github.com/Robot-Inventor/oxlint-config/pull/52) [`34e9e64`](https://github.com/Robot-Inventor/oxlint-config/commit/34e9e6427d623ace381cdc270e1603d1259721bc) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency oxlint to ^1.88.0
+
+- [#49](https://github.com/Robot-Inventor/oxlint-config/pull/49) [`a8f5585`](https://github.com/Robot-Inventor/oxlint-config/commit/a8f558560fe9a1a7d1e14d5aa6d3416175bef5e1) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint to ^10.12.0
+
+- [#48](https://github.com/Robot-Inventor/oxlint-config/pull/48) [`cd65ad8`](https://github.com/Robot-Inventor/oxlint-config/commit/cd65ad803195d074769d109583735f24be801023) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-plugin-jsdoc to ^65.3.6
+
+- [#56](https://github.com/Robot-Inventor/oxlint-config/pull/56) [`ba4bdd7`](https://github.com/Robot-Inventor/oxlint-config/commit/ba4bdd7fb2fdf086f627645665f10a73eb3eaf1c) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency oxlint-tsgolint to ^7.0.2004
+
 ## 0.5.1
 
 ### Patch Changes
