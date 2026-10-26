@@ -31,7 +31,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "lint": "tsc --noEmit && oxlint src oxlint.config.ts",
+    "lint": "tsc --noEmit && knip-bun && oxlint src oxlint.config.ts",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
     "ci:version": "changeset version",
@@ -53,6 +53,7 @@
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@robot-inventor/tsconfig-base": "^7.2.0",
+    "knip": "^6.43.0",
     "oxfmt": "^0.74.0",
     "typescript": "^7.0.2",
     "vitest": "^5.0.5"
