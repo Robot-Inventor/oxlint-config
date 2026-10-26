@@ -6,13 +6,13 @@ export default defineConfig({
     ...oxlintConfigNoJSDoc,
     overrides: [
         {
-            files: ["src/base-rules.ts", "src/index.ts"],
+            files: ["src/baseRules.ts", "src/index.ts"],
             rules: {
                 "max-lines": "off"
             }
         },
         {
-            files: ["src/eslint-core-plugin.ts"],
+            files: ["src/eslintCorePlugin.ts"],
             rules: {
                 "typescript/no-deprecated": "off"
             }

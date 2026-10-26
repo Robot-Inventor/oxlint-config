@@ -1,9 +1,9 @@
 import { type ExternalPluginEntry, type OxlintConfig, defineConfig } from "oxlint";
 import { NEXTJS_RULES, RECOMMENDED_RULES } from "oxlint-plugin-react-doctor";
-import { baseRules, typescriptOverrides } from "./base-rules.ts";
+import { baseRules, typescriptOverrides } from "./baseRules.ts";
 
 const corePluginSpecifier = new URL(
-    import.meta.url.endsWith(".ts") ? "./eslint-core-plugin.ts" : "./eslint-core-plugin.js",
+    import.meta.url.endsWith(".ts") ? "./eslintCorePlugin.ts" : "./eslintCorePlugin.js",
     import.meta.url
 ).href;
 
