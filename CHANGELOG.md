@@ -1,5 +1,25 @@
 # @robot-inventor/oxlint-config
 
+## 1.0.0
+
+### Major Changes
+
+- [#64](https://github.com/Robot-Inventor/oxlint-config/pull/64) [`1dd34f6`](https://github.com/Robot-Inventor/oxlint-config/commit/1dd34f66cae0cab9c3ac329b55484f3e00883a4f) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: add deslop plugins
+
+    - `roboin/control-flow-braces`
+    - `roboin/object-newline`
+    - `roboin/require-as-const`
+
+### Patch Changes
+
+- [#62](https://github.com/Robot-Inventor/oxlint-config/pull/62) [`d5e0dc3`](https://github.com/Robot-Inventor/oxlint-config/commit/d5e0dc39b209a29b3d0c5e2cf1cad7934e097d44) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @next/eslint-plugin-next to ^16.4.3
+
+- [#61](https://github.com/Robot-Inventor/oxlint-config/pull/61) [`ac0179a`](https://github.com/Robot-Inventor/oxlint-config/commit/ac0179a02905845c638ded9e21a336858a0a3a3e) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency oxlint-tsgolint to ^7.0.2005
+
+- [#60](https://github.com/Robot-Inventor/oxlint-config/pull/60) [`b31f26f`](https://github.com/Robot-Inventor/oxlint-config/commit/b31f26f23efafa8a84f8352126d87e67c1359288) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency oxlint to ^1.89.0
+
+- [#59](https://github.com/Robot-Inventor/oxlint-config/pull/59) [`72fbdbf`](https://github.com/Robot-Inventor/oxlint-config/commit/72fbdbfde139dcb86cffbe2b65191f91fcdcee1f) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-plugin-jsdoc to ^65.4.2
+
 ## 0.5.2
 
 ### Patch Changes
