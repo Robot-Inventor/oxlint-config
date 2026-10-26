@@ -28,8 +28,8 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsc",
-    "lint": "tsc && oxlint src oxlint.config.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "tsc --noEmit && oxlint src oxlint.config.ts",
     "format": "prettier --write \"src/**/*.ts\" oxlint.config.ts",
     "format:check": "prettier --check \"src/**/*.ts\" oxlint.config.ts",
     "ci:version": "changeset version",
@@ -40,10 +40,12 @@
     "@changesets/cli": "^3.0.3",
     "@robot-inventor/tsconfig-base": "^7.2.0",
     "prettier": "^3.9.10",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^16.4.2",
+    "@oxlint/plugins": "^1.89.0",
     "eslint": "^10.13.0",
     "eslint-import-resolver-node": "^0.4.0",
     "eslint-import-resolver-typescript": "^4.4.5",
