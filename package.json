@@ -6,12 +6,15 @@
   "bugs": {
     "url": "https://github.com/Robot-Inventor/oxlint-config/issues"
   },
+  "license": "MIT",
+  "author": "Robot-Inventor",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Robot-Inventor/oxlint-config.git"
   },
-  "license": "MIT",
-  "author": "Robot-Inventor",
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,7 +25,6 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
   "publishConfig": {
     "access": "public",
     "provenance": true
@@ -30,18 +32,10 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "lint": "tsc --noEmit && oxlint src oxlint.config.ts",
-    "format": "prettier --write \"src/**/*.ts\" oxlint.config.ts",
-    "format:check": "prettier --check \"src/**/*.ts\" oxlint.config.ts",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
     "ci:version": "changeset version",
     "ci:publish": "npm run build && changeset publish"
-  },
-  "devDependencies": {
-    "@changesets/changelog-github": "^1.0.1",
-    "@changesets/cli": "^3.0.3",
-    "@robot-inventor/tsconfig-base": "^7.2.0",
-    "prettier": "^3.9.10",
-    "typescript": "^7.0.2",
-    "vitest": "^5.0.5"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^16.4.3",
@@ -54,5 +48,13 @@
     "oxlint": "^1.89.0",
     "oxlint-plugin-react-doctor": "^0.9.18",
     "oxlint-tsgolint": "^7.0.2005"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@robot-inventor/tsconfig-base": "^7.2.0",
+    "oxfmt": "^0.74.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
   }
 }
