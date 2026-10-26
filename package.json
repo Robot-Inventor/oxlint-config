@@ -53,6 +53,6 @@
     "eslint-plugin-jsdoc": "^65.4.2",
     "oxlint": "^1.88.0",
     "oxlint-plugin-react-doctor": "^0.9.18",
-    "oxlint-tsgolint": "^7.0.2004"
+    "oxlint-tsgolint": "^7.0.2005"
   }
 }
