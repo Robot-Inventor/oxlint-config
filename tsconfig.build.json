@@ -1,0 +1,4 @@
+{
+    "extends": "./tsconfig.json",
+    "include": ["src/index.ts", "src/eslint-core-plugin.ts", "src/plugins/plugin.ts"]
+}

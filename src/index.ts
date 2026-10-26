@@ -9,6 +9,13 @@ const corePluginSpecifier = new URL(
 
 const baseJsPlugins = [
     {
+        name: "roboin",
+        specifier: new URL(
+            import.meta.url.endsWith(".ts") ? "./plugins/plugin.ts" : "./plugins/plugin.js",
+            import.meta.url
+        ).href
+    },
+    {
         name: "eslint-core-js",
         specifier: corePluginSpecifier
     },
@@ -77,6 +84,9 @@ const baseConfig = defineConfig({
     plugins: ["typescript", "jsdoc", "unicorn", "import"],
     rules: {
         ...baseRules,
+        "roboin/control-flow-braces": "error",
+        "roboin/object-newline": "error",
+        "roboin/require-as-const": "error",
         "eslint-core-js/camelcase": "error",
         "eslint-core-js/require-atomic-updates": "error",
         "import-js/no-extraneous-dependencies": "error",
@@ -187,7 +197,12 @@ const reactConfig = defineConfig({
                 "react/no-namespace": "error",
                 "react/no-react-children": "warn",
                 "react/no-render-return-value": "error",
-                "react/no-unsafe": ["error", { checkAliases: true }],
+                "react/no-unsafe": [
+                    "error",
+                    {
+                        checkAliases: true
+                    }
+                ],
                 "react/no-unstable-nested-components": "error",
                 "react/no-will-update-set-state": "warn",
                 "react/preserve-manual-memoization": "error",
