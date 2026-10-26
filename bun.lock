@@ -5,7 +5,7 @@
     "": {
       "name": "@robot-inventor/oxlint-config",
       "dependencies": {
-        "@next/eslint-plugin-next": "^16.4.2",
+        "@next/eslint-plugin-next": "^16.4.3",
         "@oxlint/plugins": "^1.89.0",
         "eslint": "^10.13.0",
         "eslint-import-resolver-node": "^0.4.0",
