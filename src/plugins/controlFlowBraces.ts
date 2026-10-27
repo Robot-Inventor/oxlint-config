@@ -11,7 +11,12 @@ const isExit = (body: ESTree.Statement): boolean => {
         statement = first;
     }
 
-    return statement.type === "ReturnStatement" || statement.type === "ThrowStatement";
+    return (
+        statement.type === "ReturnStatement" ||
+        statement.type === "ThrowStatement" ||
+        statement.type === "ContinueStatement" ||
+        statement.type === "BreakStatement"
+    );
 };
 
 const controlFlowBracesRule = {
