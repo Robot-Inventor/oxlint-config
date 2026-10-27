@@ -25,6 +25,10 @@ ruleTester.run("control-flow-braces if and exits", controlFlowBracesRule, {
             code: "function get() { if (first) { return null; } if (second) { throw failure; } }"
         },
         {
+            name: "single breaks and continues, including labeled and braced exits, remain inline",
+            code: "outer: for (;;) {\nif (a) continue; if (b) break; if (c) { continue outer; } if (d) { break outer; }\n}"
+        },
+        {
             name: "expanded exits remain expanded",
             code: "function get() { if (ready) {\nreturn null;\n} }"
         },
@@ -42,6 +46,29 @@ ruleTester.run("control-flow-braces if and exits", controlFlowBracesRule, {
         }
     ],
     invalid: [
+        {
+            name: "breaks and continues in if-else branches still require blocks",
+            code: "for (;;) {\nif (ready) continue; else break;\n}",
+            output: "for (;;) {\nif (ready) {\ncontinue;\n} else {\nbreak;\n}\n}",
+            errors: [
+                {
+                    messageId: "expectedBlock"
+                },
+                {
+                    messageId: "expectedBlock"
+                }
+            ]
+        },
+        {
+            name: "a block with work before a break still requires newlines",
+            code: "for (;;) {\nif (ready) {work(); break;}\n}",
+            output: "for (;;) {\nif (ready) {\nwork(); break;\n}\n}",
+            errors: [
+                {
+                    messageId: "expectedNewlines"
+                }
+            ]
+        },
         {
             name: "ordinary if statements require a block",
             code: "if (ready) work();",
