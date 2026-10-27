@@ -1,5 +1,11 @@
 # @robot-inventor/oxlint-config
 
+## 1.1.0
+
+### Minor Changes
+
+- [#69](https://github.com/Robot-Inventor/oxlint-config/pull/69) [`dbe4ba5`](https://github.com/Robot-Inventor/oxlint-config/commit/dbe4ba557a048b69490ca1b8fa73090e582f182f) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: add `continue` and `break` as exceptions to the `control-flow-braces` rule
+
 ## 1.0.0
 
 ### Major Changes
