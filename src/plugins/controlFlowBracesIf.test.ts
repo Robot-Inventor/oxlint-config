@@ -50,13 +50,24 @@ ruleTester.run("control-flow-braces if and exits", controlFlowBracesRule, {
             name: "breaks and continues in if-else branches still require blocks",
             code: "for (;;) {\nif (ready) continue; else break;\n}",
             output: "for (;;) {\nif (ready) {\ncontinue;\n} else {\nbreak;\n}\n}",
-            errors: [{ messageId: "expectedBlock" }, { messageId: "expectedBlock" }]
+            errors: [
+                {
+                    messageId: "expectedBlock"
+                },
+                {
+                    messageId: "expectedBlock"
+                }
+            ]
         },
         {
             name: "a block with work before a break still requires newlines",
             code: "for (;;) {\nif (ready) {work(); break;}\n}",
             output: "for (;;) {\nif (ready) {\nwork(); break;\n}\n}",
-            errors: [{ messageId: "expectedNewlines" }]
+            errors: [
+                {
+                    messageId: "expectedNewlines"
+                }
+            ]
         },
         {
             name: "ordinary if statements require a block",
