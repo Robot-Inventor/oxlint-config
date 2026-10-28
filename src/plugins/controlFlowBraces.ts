@@ -72,7 +72,8 @@ const controlFlowBracesRule = {
         return {
             IfStatement(node): void {
                 const isElseIf = node.parent.type === "IfStatement" && node.parent.alternate === node;
-                if (node.alternate || isElseIf || !isExit(node.consequent)) {
+                const needsBlock = node.alternate !== null || isElseIf || !isExit(node.consequent);
+                if (needsBlock) {
                     checkBody(node.consequent);
                 }
                 if (node.alternate && node.alternate.type !== "IfStatement") {
