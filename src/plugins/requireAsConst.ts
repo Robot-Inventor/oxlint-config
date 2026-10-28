@@ -1,17 +1,17 @@
 import type { ESTree, Rule } from "@oxlint/plugins";
 
 /*
- * Require `as const` on object literals that initialize `const` variables and are never mutated:
+ * Require `as const` on object and array literals that initialize `const` variables and are never mutated:
  *
  * - Only `const` declarations with an identifier binding are targeted.
- * - Objects wrapped in parentheses or TypeScript wrappers are treated the same way.
+ * - Literals wrapped in parentheses or TypeScript wrappers are treated the same way.
  * - Declarations with type annotations are exempt because `as const` can conflict with the annotated mutable type.
  *
  * Scope analysis has already resolved all references before AST traversal starts,
  * so references made after the declaration are visible when the declarator is visited.
  */
 
-const findObjectInit = (init: ESTree.Expression): ESTree.Expression => {
+const findLiteralInit = (init: ESTree.Expression): ESTree.Expression => {
     let node = init;
 
     while (
@@ -65,13 +65,49 @@ const isWriteTarget = (node: ESTree.Node): boolean => {
     return false;
 };
 
+const mutatingArrayMethods = new Set([
+    "push",
+    "pop",
+    "shift",
+    "unshift",
+    "splice",
+    "sort",
+    "reverse",
+    "fill",
+    "copyWithin"
+]);
+
+const isArrayMutation = (node: ESTree.Node): boolean => {
+    let root = getTargetRoot(node);
+    if (root.parent?.type !== "CallExpression" || root.parent.callee !== root) return false;
+
+    while (
+        root.type === "ParenthesizedExpression" ||
+        root.type === "ChainExpression" ||
+        root.type === "TSAsExpression" ||
+        root.type === "TSTypeAssertion" ||
+        root.type === "TSNonNullExpression" ||
+        root.type === "TSSatisfiesExpression"
+    ) {
+        root = root.expression;
+    }
+    if (root.type !== "MemberExpression") return false;
+
+    return (
+        (root.property.type === "Identifier" && !root.computed && mutatingArrayMethods.has(root.property.name)) ||
+        (root.property.type === "Literal" &&
+            typeof root.property.value === "string" &&
+            mutatingArrayMethods.has(root.property.value))
+    );
+};
+
 const requireAsConstRule = {
     meta: {
         type: "suggestion",
         fixable: "code",
         schema: [],
         messages: {
-            expectedAsConst: "Add `as const` to the object literal to make it readonly."
+            expectedAsConst: "Add `as const` to the literal to make it readonly."
         }
     },
     createOnce(context) {
@@ -83,8 +119,8 @@ const requireAsConstRule = {
                 if (node.id.type !== "Identifier" || node.id.typeAnnotation) return;
                 if (node.init === null) return;
 
-                const objectInit = findObjectInit(node.init);
-                if (objectInit.type !== "ObjectExpression") return;
+                const literalInit = findLiteralInit(node.init);
+                if (literalInit.type !== "ObjectExpression" && literalInit.type !== "ArrayExpression") return;
 
                 const [variable] = context.sourceCode.getDeclaredVariables(node);
                 if (!variable) return;
@@ -92,14 +128,17 @@ const requireAsConstRule = {
                 // The binding identifier itself is not treated as a write.
                 const isMutated = variable.references.some(
                     (reference) =>
-                        reference.identifier !== node.id && (reference.isWrite() || isWriteTarget(reference.identifier))
+                        reference.identifier !== node.id &&
+                        (reference.isWrite() ||
+                            isWriteTarget(reference.identifier) ||
+                            (literalInit.type === "ArrayExpression" && isArrayMutation(reference.identifier)))
                 );
                 if (isMutated) return;
 
                 context.report({
                     node,
                     messageId: "expectedAsConst",
-                    fix: (fixer) => fixer.insertTextAfter(objectInit, " as const")
+                    fix: (fixer) => fixer.insertTextAfter(literalInit, " as const")
                 });
             }
         };

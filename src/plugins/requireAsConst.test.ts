@@ -111,7 +111,7 @@ ruleTester.run("require-as-const", requireAsConstRule, {
         },
         {
             name: "non-object initial values are outside the rule",
-            code: "const hoge = [1, 2]; const piyo = 1; const piyo2 = null; const piyo3 = () => {};"
+            code: "const piyo = 1; const piyo2 = null; const piyo3 = () => {};"
         },
         {
             name: "destructuring declarations are outside the rule",

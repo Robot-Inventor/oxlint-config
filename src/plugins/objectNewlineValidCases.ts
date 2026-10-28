@@ -64,6 +64,6 @@ const validCases = [
         name: "braces in comments and strings are not objects",
         code: 'const text = "{a: 1,b: 2}"; /* {c: 3} */'
     }
-];
+] as const;
 
 export { validCases };

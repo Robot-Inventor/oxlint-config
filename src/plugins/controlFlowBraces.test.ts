@@ -21,7 +21,7 @@ const loopHeaders = [
     "for (const value of source)",
     "for await (const value of source)",
     "while (ready)"
-];
+] as const;
 
 ruleTester.run("control-flow-braces loops and layout", controlFlowBracesRule, {
     valid: [
