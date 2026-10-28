@@ -1,5 +1,13 @@
 # @robot-inventor/oxlint-config
 
+## 1.2.0
+
+### Minor Changes
+
+- [#73](https://github.com/Robot-Inventor/oxlint-config/pull/73) [`eafb073`](https://github.com/Robot-Inventor/oxlint-config/commit/eafb073f148a70b12b3a9133732f34195ceaab0a) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: add `extract-complex-condition` rule
+
+- [#71](https://github.com/Robot-Inventor/oxlint-config/pull/71) [`55b4984`](https://github.com/Robot-Inventor/oxlint-config/commit/55b49849047ab86ed5d8b4d624e0edc77954eb21) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: require `as const` for arrays that will not be modified
+
 ## 1.1.0
 
 ### Minor Changes
