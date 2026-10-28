@@ -279,6 +279,6 @@ const invalidCases = [
             }
         ]
     }
-];
+] as const;
 
 export { invalidCases };
