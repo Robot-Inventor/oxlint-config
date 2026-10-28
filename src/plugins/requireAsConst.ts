@@ -34,14 +34,14 @@ const getTargetRoot = (node: ESTree.Node): ESTree.Node => {
     if (!parent) return node;
 
     if (parent.type === "MemberExpression" && parent.object === node) return getTargetRoot(parent);
-    if (
+    const isWrapper =
         parent.type === "ParenthesizedExpression" ||
         parent.type === "ChainExpression" ||
         parent.type === "TSAsExpression" ||
         parent.type === "TSTypeAssertion" ||
         parent.type === "TSNonNullExpression" ||
-        parent.type === "TSSatisfiesExpression"
-    ) {
+        parent.type === "TSSatisfiesExpression";
+    if (isWrapper) {
         return getTargetRoot(parent);
     }
     if (parent.type === "ObjectPattern" || parent.type === "ArrayPattern") return getTargetRoot(parent);

@@ -85,6 +85,7 @@ const baseConfig = defineConfig({
     rules: {
         ...baseRules,
         "roboin/control-flow-braces": "error",
+        "roboin/extract-complex-condition": "error",
         "roboin/object-newline": "error",
         "roboin/require-as-const": "error",
         "eslint-core-js/camelcase": "error",

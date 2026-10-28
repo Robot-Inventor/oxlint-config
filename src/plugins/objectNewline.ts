@@ -51,7 +51,9 @@ const getNewlinePolicy = (node: ESTree.ObjectExpression): "preserve" | "threshol
     if (parent.type === "ArrowFunctionExpression") {
         const callback = getOuterExpression(parent);
         const call = callback.parent;
-        if ((call.type === "CallExpression" || call.type === "NewExpression") && call.callee !== callback) {
+        const isArgument =
+            (call.type === "CallExpression" || call.type === "NewExpression") && call.callee !== callback;
+        if (isArgument) {
             return "preserve";
         }
     }
@@ -60,11 +62,14 @@ const getNewlinePolicy = (node: ESTree.ObjectExpression): "preserve" | "threshol
         return parent.parent.type === "IfStatement" && parent.parent.consequent === parent ? "threshold" : "multiline";
     }
 
-    return ((parent.type === "CallExpression" || parent.type === "NewExpression") && parent.callee !== expression) ||
-        (parent.type === "JSXExpressionContainer" && parent.parent.type === "JSXAttribute")
-        ? "threshold"
-        : "multiline";
+    const isArgument =
+        (parent.type === "CallExpression" || parent.type === "NewExpression") && parent.callee !== expression;
+    const isJsxAttribute = parent.type === "JSXExpressionContainer" && parent.parent.type === "JSXAttribute";
+    return isArgument || isJsxAttribute ? "threshold" : "multiline";
 };
+
+const isLonghand = (property: ESTree.ObjectExpression["properties"][number]): boolean =>
+    property.type === "Property" && !property.shorthand && !property.method && property.kind === "init";
 
 const objectNewlineRule = {
     meta: {
@@ -84,12 +89,7 @@ const objectNewlineRule = {
                 if (policy === "threshold") {
                     let longhandProperties = 0;
                     for (const property of node.properties) {
-                        if (
-                            property.type === "Property" &&
-                            !property.shorthand &&
-                            !property.method &&
-                            property.kind === "init"
-                        ) {
+                        if (isLonghand(property)) {
                             longhandProperties++;
                             if (longhandProperties === minimumLonghandProperties) {
                                 break;
