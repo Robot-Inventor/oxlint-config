@@ -34,6 +34,7 @@ const getTargetRoot = (node: ESTree.Node): ESTree.Node => {
     if (!parent) return node;
 
     if (parent.type === "MemberExpression" && parent.object === node) return getTargetRoot(parent);
+
     const isWrapper =
         parent.type === "ParenthesizedExpression" ||
         parent.type === "ChainExpression" ||
@@ -41,9 +42,11 @@ const getTargetRoot = (node: ESTree.Node): ESTree.Node => {
         parent.type === "TSTypeAssertion" ||
         parent.type === "TSNonNullExpression" ||
         parent.type === "TSSatisfiesExpression";
+
     if (isWrapper) {
         return getTargetRoot(parent);
     }
+
     if (parent.type === "ObjectPattern" || parent.type === "ArrayPattern") return getTargetRoot(parent);
     if (parent.type === "Property" && parent.value === node) return getTargetRoot(parent);
     if (parent.type === "AssignmentPattern" && parent.left === node) return getTargetRoot(parent);
@@ -91,6 +94,7 @@ const isArrayMutation = (node: ESTree.Node): boolean => {
     ) {
         root = root.expression;
     }
+
     if (root.type !== "MemberExpression") return false;
 
     return (
@@ -133,6 +137,7 @@ const requireAsConstRule = {
                             isWriteTarget(reference.identifier) ||
                             (literalInit.type === "ArrayExpression" && isArrayMutation(reference.identifier)))
                 );
+
                 if (isMutated) return;
 
                 context.report({

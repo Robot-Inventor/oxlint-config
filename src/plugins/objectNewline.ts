@@ -53,6 +53,7 @@ const getNewlinePolicy = (node: ESTree.ObjectExpression): "preserve" | "threshol
         const call = callback.parent;
         const isArgument =
             (call.type === "CallExpression" || call.type === "NewExpression") && call.callee !== callback;
+
         if (isArgument) {
             return "preserve";
         }
@@ -64,7 +65,9 @@ const getNewlinePolicy = (node: ESTree.ObjectExpression): "preserve" | "threshol
 
     const isArgument =
         (parent.type === "CallExpression" || parent.type === "NewExpression") && parent.callee !== expression;
+
     const isJsxAttribute = parent.type === "JSXExpressionContainer" && parent.parent.type === "JSXAttribute";
+
     return isArgument || isJsxAttribute ? "threshold" : "multiline";
 };
 
@@ -106,12 +109,14 @@ const objectNewlineRule = {
                     if (previousLine === property.loc.start.line) {
                         insertionOffsets.push(property.start);
                     }
+
                     previousLine = property.loc.end.line;
                 }
 
                 if (previousLine === node.loc.end.line) {
                     insertionOffsets.push(node.end - closingBraceLength);
                 }
+
                 if (insertionOffsets.length) {
                     context.report({
                         node,

@@ -37,6 +37,7 @@ const controlFlowBracesRule = {
                 // Multiline unbraced statements are already handled by curly: ["error", "multi-line"].
                 const previous = sourceCode.getTokenBefore(body, { includeComments: true });
                 if (previous && previous.loc.end.line !== body.loc.start.line) return;
+
                 const statementText = sourceCode.getText(body).replace(/[\s;]+$/u, "");
                 if (statementText.includes("\n")) return;
 
@@ -45,6 +46,7 @@ const controlFlowBracesRule = {
                     messageId: "expectedBlock",
                     fix: (fixer) => [fixer.insertTextBefore(body, "{\n"), fixer.insertTextAfter(body, "\n}")]
                 });
+
                 return;
             }
 
@@ -56,9 +58,11 @@ const controlFlowBracesRule = {
             if (first.loc.start.line === body.loc.start.line) {
                 insertionOffsets.add(body.start + braceLength);
             }
+
             if (last.loc.end.line === body.loc.end.line) {
                 insertionOffsets.add(body.end - braceLength);
             }
+
             if (!insertionOffsets.size) return;
 
             context.report({
@@ -76,6 +80,7 @@ const controlFlowBracesRule = {
                 if (needsBlock) {
                     checkBody(node.consequent);
                 }
+
                 if (node.alternate && node.alternate.type !== "IfStatement") {
                     checkBody(node.alternate);
                 }
