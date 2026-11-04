@@ -6,9 +6,11 @@ const minimumConditions = 3;
 const countConditions = (node: ESTree.Node): number => {
     if (node.type === "ParenthesizedExpression") return countConditions(node.expression);
     if (node.type === "UnaryExpression" && node.operator === "!") return countConditions(node.argument);
+
     if (node.type === "LogicalExpression" && node.operator !== "??") {
         return countConditions(node.left) + countConditions(node.right);
     }
+
     return singleCondition;
 };
 
@@ -34,6 +36,7 @@ const extractComplexConditionRule = {
                     current = parent;
                     ({ parent } = current);
                 }
+
                 if (parent.type === "LogicalExpression" && parent.operator !== "??") return;
                 if (countConditions(current) < minimumConditions) return;
 
@@ -42,15 +45,19 @@ const extractComplexConditionRule = {
                         parent.type === "FunctionDeclaration" ||
                         parent.type === "FunctionExpression" ||
                         parent.type === "ArrowFunctionExpression";
+
                     if (isFunction) return;
 
                     const isCondition =
                         (parent.type === "IfStatement" || parent.type === "ConditionalExpression") &&
                         parent.test === current;
+
                     if (isCondition) {
                         context.report({ node: current, messageId: "extract" });
+
                         return;
                     }
+
                     current = parent;
                     ({ parent } = current);
                 }
