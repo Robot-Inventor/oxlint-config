@@ -1,5 +1,23 @@
 # @robot-inventor/oxlint-config
 
+## 2.0.0
+
+### Major Changes
+
+- [#81](https://github.com/Robot-Inventor/oxlint-config/pull/81) [`bc1c857`](https://github.com/Robot-Inventor/oxlint-config/commit/bc1c857aa58e06b71aa1a19d5315dd9b1349e080) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: remove the rule that required JSDoc
+
+    The rules `oxlintConfigNoJSDoc`, `oxlintNextConfigNoJSDoc`, and `oxlintReactConfigNoJSDoc` have been renamed to `oxlintConfig`, `oxlintNextConfig`, and `oxlintReactConfig`, respectively, and the previous rule that required JSDoc has been removed.
+
+### Minor Changes
+
+- [#77](https://github.com/Robot-Inventor/oxlint-config/pull/77) [`42df379`](https://github.com/Robot-Inventor/oxlint-config/commit/42df379c0912e65c1cef0f0a1778ed0daff56f48) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: add `logical-newline` rule
+
+### Patch Changes
+
+- [#80](https://github.com/Robot-Inventor/oxlint-config/pull/80) [`14ecb98`](https://github.com/Robot-Inventor/oxlint-config/commit/14ecb985c853faf47e5e4b119dd019450ec2203b) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @next/eslint-plugin-next to ^16.4.4
+
+- [#75](https://github.com/Robot-Inventor/oxlint-config/pull/75) [`e63bb33`](https://github.com/Robot-Inventor/oxlint-config/commit/e63bb33bd47256ec96eab4a82f4b1f44b19e7b9e) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update oxlint monorepo to ^1.90.0
+
 ## 1.2.0
 
 ### Minor Changes
