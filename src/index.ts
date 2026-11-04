@@ -94,6 +94,7 @@ const baseConfig = defineConfig({
         "import-js/no-extraneous-dependencies": "error",
         "import-js/no-unresolved": "error",
         "import-js/no-useless-path-segments": "error",
+        "jsdoc-js/require-jsdoc": "off",
         "jsdoc-js/check-alignment": "error",
         "jsdoc-js/check-param-names": "error",
         "jsdoc-js/check-types": "error",
@@ -117,40 +118,6 @@ const baseConfig = defineConfig({
             rules: typescriptOverrides
         }
     ]
-});
-
-const noJSDocRequirement = defineConfig({
-    rules: {
-        "jsdoc-js/require-jsdoc": "off"
-    }
-});
-
-const JSDocRequirement = defineConfig({
-    rules: {
-        "jsdoc-js/require-jsdoc": [
-            "error",
-            {
-                checkAllFunctionExpressions: false,
-                checkConstructors: true,
-                checkGetters: true,
-                checkSetters: true,
-                enableFixer: true,
-                exemptEmptyConstructors: false,
-                exemptEmptyFunctions: false,
-                exemptOverloadedImplementations: false,
-                fixerMessage: "",
-                require: {
-                    ArrowFunctionExpression: true,
-                    ClassDeclaration: true,
-                    ClassExpression: true,
-                    FunctionDeclaration: true,
-                    FunctionExpression: true,
-                    MethodDefinition: true
-                },
-                skipInterveningOverloadedDeclarations: true
-            }
-        ]
-    }
 });
 
 const reactConfig = defineConfig({
@@ -261,53 +228,25 @@ const nextConfig = defineConfig({
     }
 });
 
-const oxlintConfigNoJSDoc = defineConfig({
-    ...commonRoot,
-    extends: [baseConfig, noJSDocRequirement],
-    jsPlugins: baseJsPlugins,
-    settings: commonSettings
-});
-
 const oxlintConfig = defineConfig({
     ...commonRoot,
-    extends: [baseConfig, JSDocRequirement],
+    extends: [baseConfig],
     jsPlugins: baseJsPlugins,
     settings: commonSettings
-});
-
-const oxlintReactConfigNoJSDoc = defineConfig({
-    ...commonRoot,
-    extends: [baseConfig, noJSDocRequirement, reactConfig],
-    jsPlugins: reactJsPlugins,
-    settings: reactSettings
 });
 
 const oxlintReactConfig = defineConfig({
     ...commonRoot,
-    extends: [baseConfig, JSDocRequirement, reactConfig],
+    extends: [baseConfig, reactConfig],
     jsPlugins: reactJsPlugins,
-    settings: reactSettings
-});
-
-const oxlintNextConfigNoJSDoc = defineConfig({
-    ...commonRoot,
-    extends: [baseConfig, noJSDocRequirement, reactConfig, nextConfig],
-    jsPlugins: nextJsPlugins,
     settings: reactSettings
 });
 
 const oxlintNextConfig = defineConfig({
     ...commonRoot,
-    extends: [baseConfig, JSDocRequirement, reactConfig, nextConfig],
+    extends: [baseConfig, reactConfig, nextConfig],
     jsPlugins: nextJsPlugins,
     settings: reactSettings
 });
 
-export {
-    oxlintConfig,
-    oxlintConfigNoJSDoc,
-    oxlintNextConfig,
-    oxlintNextConfigNoJSDoc,
-    oxlintReactConfig,
-    oxlintReactConfigNoJSDoc
-};
+export { oxlintConfig, oxlintNextConfig, oxlintReactConfig };
