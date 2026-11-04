@@ -1,9 +1,8 @@
 import { defineConfig } from "oxlint";
-
-import { oxlintConfigNoJSDoc } from "./src/index.ts";
+import { oxlintConfig } from "./src/index.ts";
 
 export default defineConfig({
-    ...oxlintConfigNoJSDoc,
+    ...oxlintConfig,
     overrides: [
         {
             files: ["src/baseRules.ts", "src/index.ts"],
