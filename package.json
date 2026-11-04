@@ -39,13 +39,13 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^16.4.3",
-    "@oxlint/plugins": "^1.89.0",
+    "@oxlint/plugins": "^1.90.0",
     "eslint": "^10.13.0",
     "eslint-import-resolver-node": "^0.4.0",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-import-x": "^4.17.1",
     "eslint-plugin-jsdoc": "^65.4.2",
-    "oxlint": "^1.89.0",
+    "oxlint": "^1.90.0",
     "oxlint-plugin-react-doctor": "^0.9.18",
     "oxlint-tsgolint": "^7.0.2005"
   },
