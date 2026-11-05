@@ -1,5 +1,13 @@
 # @robot-inventor/oxlint-config
 
+## 2.1.1
+
+### Patch Changes
+
+- [#92](https://github.com/Robot-Inventor/oxlint-config/pull/92) [`8cd4157`](https://github.com/Robot-Inventor/oxlint-config/commit/8cd4157edb76b469e640e9b462d90bf2583b73b7) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update oxlint monorepo to ^1.91.0
+
+- [#89](https://github.com/Robot-Inventor/oxlint-config/pull/89) [`283166f`](https://github.com/Robot-Inventor/oxlint-config/commit/283166f5176a6cdead26b686f95d85381c9de396) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - fix: improve how `logical-newline` handles comments
+
 ## 2.1.0
 
 ### Minor Changes
