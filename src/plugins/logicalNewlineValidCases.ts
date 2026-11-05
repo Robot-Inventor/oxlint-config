@@ -64,6 +64,34 @@ const validCases = [
         code: "function work() {\nconst a = prepare();\n\n// Use the prepared value.\nreturn a;\n}"
     },
     {
+        name: "a closing lint directive can precede the blank line before exports",
+        code: "const hoge = {\na: 1\n};\n/* oxlint-enable sort-keys */\n\nexport { hoge };"
+    },
+    {
+        name: "an own-line comment can end the previous statement's group",
+        code: "function work() {\nconst a = prepare();\n// Preparation complete.\n\nreturn a;\n}"
+    },
+    {
+        name: "a blank line between comments separates imports from the next statement",
+        code: 'import value from "a";\n// Loading complete.\n\n// Use value.\nconst result = value;'
+    },
+    {
+        name: "a multiline own-line comment can precede a blank line",
+        code: "if (ready) return;\n/* Work is\nready. */\n\nrun();"
+    },
+    {
+        name: "a blank line after trailing and own-line comments separates statements",
+        code: "function work() {\nprepare(); /* multi\nline */\n// Preparation complete.\n\nreturn;\n}"
+    },
+    {
+        name: "CRLF blank lines after comments are preserved",
+        code: "const value = 1;\r\n// Value ready.\r\n\r\nexport { value };"
+    },
+    {
+        name: "a whitespace-only blank line after a comment separates statements",
+        code: "const value = 1;\n// Value ready.\n    \nexport { value };"
+    },
+    {
         name: "a comment inside a guard run does not require a blank line",
         code: "function work() {\nif (!ready) return null;\n// items may be null.\nif (!items) return 0;\n}"
     },
