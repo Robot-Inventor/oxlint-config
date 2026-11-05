@@ -12,8 +12,8 @@ import type { ESTree, Rule } from "@oxlint/plugins";
  *   declarations, long calls, etc.), because a multiline statement is treated as its own group.
  * - Consecutive imports or consecutive exports form a single group, so blank lines are optional.
  * - Require a blank line after an import group and before an export group.
- * - A comment on its own line belongs to the following statement, so the blank line is required
- *   before the comment.
+ * - A blank line anywhere between statements and intervening comments separates their groups;
+ *   blank lines inside comments do not count.
  * - Fine formatting such as indentation and consecutive blank lines is left to oxfmt.
  */
 
@@ -76,23 +76,23 @@ const logicalNewlineRule = {
             const { sourceCode } = context;
 
             /*
-             * The group starts at the next statement or the first comment on its own line.
-             * Comments trailing the previous statement on its last line stay in that group, so a
-             * multiline trailing comment extends the group's last line.
+             * Keep fixes before own-line comments so leading documentation and directives stay
+             * attached to the next statement. Trailing comments stay with the previous statement.
              */
             let previousGroupEndLine = previous.loc.end.line;
-            let groupStartLine = next.loc.start.line;
+            let previousEndLine = previous.loc.end.line;
             let insertionOffset = previous.end;
             for (const comment of sourceCode.getCommentsAfter(previous)) {
+                if (comment.loc.start.line - previousEndLine >= requiredLineGap) return;
+
+                previousEndLine = comment.loc.end.line;
                 if (comment.loc.start.line <= previousGroupEndLine) {
                     insertionOffset = comment.end;
                     previousGroupEndLine = Math.max(previousGroupEndLine, comment.loc.end.line);
-                } else {
-                    groupStartLine = Math.min(groupStartLine, comment.loc.start.line);
                 }
             }
 
-            if (groupStartLine - previousGroupEndLine >= requiredLineGap) return;
+            if (next.loc.start.line - previousEndLine >= requiredLineGap) return;
 
             const lineBreak = sourceCode.getText().startsWith("\r\n", insertionOffset) ? "\r\n" : "\n";
             context.report({

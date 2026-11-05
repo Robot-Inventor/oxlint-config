@@ -121,6 +121,16 @@ const invalidCases = [
         ]
     },
     {
+        name: "a blank line inside a trailing comment does not separate statements",
+        code: "function work() {\nprepare(); /* multi\n\nline */\n// Use result.\nreturn;\n}",
+        output: "function work() {\nprepare(); /* multi\n\nline */\n\n// Use result.\nreturn;\n}",
+        errors: [
+            {
+                messageId: "expectedBlankLine"
+            }
+        ]
+    },
+    {
         name: "a multiline guard clause closes its group with a blank line",
         code: "function work() {\nif (\nready === undefined\n) return null;\nconst result = compute();\n}",
         output: "function work() {\nif (\nready === undefined\n) return null;\n\nconst result = compute();\n}",
@@ -238,6 +248,8 @@ const invalidCases = [
     },
     ...(
         [
+            ["const value = 1;", "/* Value\n\nready. */\nexport { value };"],
+            ["const value = 1;", "// Value ready.\n/* Public API. */\nexport { value };"],
             ['import {\na\n} from "a";', "const value = a;"],
             ['import {\na\n} from "a";', "export {\na\n};"],
             ["const config = {\na: 1\n};", 'import {\nb\n} from "b";'],
