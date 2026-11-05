@@ -364,7 +364,12 @@ const migratedRules = {
     "typescript/explicit-member-accessibility": "error",
     "typescript/consistent-type-imports": "error",
     "typescript/no-import-type-side-effects": "error",
-    "typescript/consistent-type-exports": "error",
+    "typescript/consistent-type-exports": [
+        "error",
+        {
+            fixMixedExportsWithInlineTypeSpecifier: true
+        }
+    ],
     "typescript/switch-exhaustiveness-check": "error"
 } as const satisfies NonNullable<OxlintConfig["rules"]>;
 

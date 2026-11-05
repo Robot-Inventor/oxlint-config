@@ -86,6 +86,7 @@ const baseConfig = defineConfig({
         ...baseRules,
         "roboin/control-flow-braces": "error",
         "roboin/extract-complex-condition": "error",
+        "roboin/group-exports": "error",
         "roboin/logical-newline": "error",
         "roboin/object-newline": "error",
         "roboin/require-as-const": "error",
