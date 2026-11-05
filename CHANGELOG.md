@@ -1,5 +1,21 @@
 # @robot-inventor/oxlint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- [#88](https://github.com/Robot-Inventor/oxlint-config/pull/88) [`3634699`](https://github.com/Robot-Inventor/oxlint-config/commit/363469991939137d306aa2338322f638d36860ae) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: add `roboin/group-exports` rule
+
+### Patch Changes
+
+- [#82](https://github.com/Robot-Inventor/oxlint-config/pull/82) [`9634f5d`](https://github.com/Robot-Inventor/oxlint-config/commit/9634f5d27823ffc02d4903b7ac7fddb81f2fd437) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency oxlint-plugin-react-doctor to ^0.9.22
+
+- [#87](https://github.com/Robot-Inventor/oxlint-config/pull/87) [`affd52d`](https://github.com/Robot-Inventor/oxlint-config/commit/affd52d97555d9027576aacd3007b41dfb522915) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - fix: require blank lines after import groups and before export groups in logical-newline
+
+- [#84](https://github.com/Robot-Inventor/oxlint-config/pull/84) [`fba1734`](https://github.com/Robot-Inventor/oxlint-config/commit/fba1734a662a6eaa3eb47b77d8d0747bdd5c65a3) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint to ^10.14.0
+
+- [#85](https://github.com/Robot-Inventor/oxlint-config/pull/85) [`c9fce53`](https://github.com/Robot-Inventor/oxlint-config/commit/c9fce53766c08d7f5fd1827644af0e35961c9db9) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - fix: improve handling of multi-line imports and exports in logical-newline rule
+
 ## 2.0.0
 
 ### Major Changes
