@@ -98,6 +98,86 @@ const validCases = [
     {
         name: "a multiline statement is separated from a following guard clause",
         code: "const config = buildConfig({\na: 1\n});\n\nif (!config.valid) return;"
+    },
+    {
+        name: "a multiline import may be followed directly by a single-line import",
+        code: 'import {\na\n} from "a";\nimport b from "b";'
+    },
+    {
+        name: "a multiline import may be followed directly by another multiline import",
+        code: 'import {\na\n} from "a";\nimport {\nb\n} from "b";'
+    },
+    {
+        name: "a multiline import may be followed directly by a side-effect import",
+        code: 'import {\na\n} from "a";\nimport "b";'
+    },
+    {
+        name: "comments between consecutive imports do not require a blank line",
+        code: 'import {\na\n} from "a";\n// Load b.\nimport b from "b";'
+    },
+    {
+        name: "blank lines between consecutive imports are allowed",
+        code: 'import {\na\n} from "a";\n\nimport b from "b";'
+    },
+    {
+        name: "a multiline import may be followed directly by a TypeScript import-equals",
+        code: 'import {\na\n} from "a";\nimport b = require("b");'
+    },
+    {
+        name: "a multiline TypeScript import-equals may be followed directly by an import",
+        code: 'import a = require(\n"a"\n);\nimport b from "b";'
+    },
+    {
+        name: "consecutive multiline TypeScript import-equals need no blank line",
+        code: 'import a = require(\n"a"\n);\nimport b = require(\n"b"\n);'
+    },
+    {
+        name: "a multiline export may be followed directly by a single-line export",
+        code: 'export {\na\n} from "a";\nexport { b } from "b";'
+    },
+    {
+        name: "consecutive multiline exports do not require a blank line",
+        code: 'export {\na\n} from "a";\nexport {\nb\n} from "b";'
+    },
+    {
+        name: "a multiline export may be followed directly by an export-all",
+        code: 'export {\na\n} from "a";\nexport * from "b";'
+    },
+    {
+        name: "a multiline export-all may be followed directly by an export",
+        code: 'export *\nfrom "a";\nexport { b } from "b";'
+    },
+    {
+        name: "a multiline export may be followed directly by a default export",
+        code: 'export {\na\n} from "a";\nexport default 1;'
+    },
+    {
+        name: "a multiline default export may be followed directly by an export",
+        code: 'export default {\na: 1\n};\nexport { b } from "b";'
+    },
+    {
+        name: "comments between consecutive exports do not require a blank line",
+        code: 'export {\na\n} from "a";\n// Expose b.\nexport { b } from "b";'
+    },
+    {
+        name: "blank lines between consecutive exports are allowed",
+        code: 'export {\na\n} from "a";\n\nexport { b } from "b";'
+    },
+    {
+        name: "a multiline TypeScript namespace export may directly precede an export assignment",
+        code: "export as namespace\nConfig;\nexport = {};"
+    },
+    {
+        name: "a multiline TypeScript export assignment may directly precede a namespace export",
+        code: "export = {\na: 1\n};\nexport as namespace Config;"
+    },
+    {
+        name: "a multiline export may be followed directly by a TypeScript namespace export",
+        code: 'export {\na\n} from "a";\nexport as namespace Config;'
+    },
+    {
+        name: "a multiline TypeScript namespace export may be followed directly by an export",
+        code: 'export as namespace\nConfig;\nexport { b } from "b";'
     }
 ] as const;
 
