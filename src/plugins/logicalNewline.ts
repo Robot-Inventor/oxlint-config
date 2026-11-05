@@ -11,6 +11,7 @@ import type { ESTree, Rule } from "@oxlint/plugins";
  * - Require a blank line after any other multiline statement (control-flow blocks, multiline
  *   declarations, long calls, etc.), because a multiline statement is treated as its own group.
  * - Consecutive imports or consecutive exports form a single group, so blank lines are optional.
+ * - Require a blank line after an import group and before an export group.
  * - A comment on its own line belongs to the following statement, so the blank line is required
  *   before the comment.
  * - Fine formatting such as indentation and consecutive blank lines is left to oxfmt.
@@ -52,6 +53,7 @@ const isExport = (statement: ESTree.Statement): boolean =>
 const requiresBlankLine = (previous: ESTree.Statement, next: ESTree.Statement): boolean => {
     if (isImport(previous) && isImport(next)) return false;
     if (isExport(previous) && isExport(next)) return false;
+    if (isImport(previous) || isExport(next)) return true;
     if (isPlainExit(next)) return true;
     if (isExitGroupMember(previous)) return !isExitGroupMember(next);
 

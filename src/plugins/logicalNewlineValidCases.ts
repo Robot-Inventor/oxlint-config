@@ -132,6 +132,22 @@ const validCases = [
         code: 'import a = require(\n"a"\n);\nimport b = require(\n"b"\n);'
     },
     {
+        name: "single-line imports and exports are separated at group boundaries",
+        code: 'import a from "a";\nimport type { B } from "b";\nimport "c";\n\nconst value = a;\n\nexport { value };\nexport type { B };'
+    },
+    {
+        name: "single-line exports do not require a following blank line",
+        code: 'export const value = 1;\nconst other = 2;\nimport "a";'
+    },
+    {
+        name: "dynamic imports do not require a following blank line",
+        code: 'const module = import("a");\nconst value = module;'
+    },
+    {
+        name: "consecutive exported declarations allow blank lines but do not require them",
+        code: "export function work() {\nrun();\n}\nexport class Worker {\n}\n\nexport const value = 1;\nexport type Value = number;\nexport interface Config {\nvalue: Value;\n}"
+    },
+    {
         name: "a multiline export may be followed directly by a single-line export",
         code: 'export {\na\n} from "a";\nexport { b } from "b";'
     },

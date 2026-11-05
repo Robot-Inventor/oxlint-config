@@ -143,8 +143,11 @@ const invalidCases = [
     {
         name: "top-level statements are checked",
         code: 'import x from "x";\nfunction work() {\nreturn x;\n}\nconst y = work();',
-        output: 'import x from "x";\nfunction work() {\nreturn x;\n}\n\nconst y = work();',
+        output: 'import x from "x";\n\nfunction work() {\nreturn x;\n}\n\nconst y = work();',
         errors: [
+            {
+                messageId: "expectedBlankLine"
+            },
             {
                 messageId: "expectedBlankLine"
             }
@@ -214,9 +217,9 @@ const invalidCases = [
         ]
     },
     {
-        name: "a multiline import still requires a blank line before an ordinary statement",
-        code: 'import {\na\n} from "a";\nconst value = a;',
-        output: 'import {\na\n} from "a";\n\nconst value = a;',
+        name: "a comment after imports stays with the following statement",
+        code: 'import value from "a"; // Load value.\n// Use value.\nconst result = value;',
+        output: 'import value from "a"; // Load value.\n\n// Use value.\nconst result = value;',
         errors: [
             {
                 messageId: "expectedBlankLine"
@@ -224,55 +227,49 @@ const invalidCases = [
         ]
     },
     {
-        name: "a multiline import still requires a blank line before an export",
-        code: 'import {\na\n} from "a";\nexport {\na\n};',
-        output: 'import {\na\n} from "a";\n\nexport {\na\n};',
+        name: "a JSDoc comment stays attached to its export",
+        code: "const value = 1;\n/** Public API. */\nexport { value };",
+        output: "const value = 1;\n\n/** Public API. */\nexport { value };",
         errors: [
             {
                 messageId: "expectedBlankLine"
             }
         ]
     },
-    {
-        name: "an ordinary multiline statement still requires a blank line before an import",
-        code: 'const config = {\na: 1\n};\nimport {\nb\n} from "b";',
-        output: 'const config = {\na: 1\n};\n\nimport {\nb\n} from "b";',
+    ...(
+        [
+            ['import {\na\n} from "a";', "const value = a;"],
+            ['import {\na\n} from "a";', "export {\na\n};"],
+            ["const config = {\na: 1\n};", 'import {\nb\n} from "b";'],
+            ['export {\na\n} from "a";', "const value = 1;"],
+            ['export {\na\n} from "a";', 'import {\nb\n} from "b";'],
+            ["const config = {\na: 1\n};", "export {\nconfig\n};"],
+            ['import value from "a";', "const result = value;"],
+            ['import type { Value } from "a";', "const result = 1;"],
+            ['import "a";', "const result = 1;"],
+            ['import value = require("a");', "const result = value;"],
+            ['import value from "a";', "export { value };"],
+            ["const value = 1;", "export { value };"],
+            ["const value = 1;", 'export { value } from "a";'],
+            ["const value = 1;", 'export * from "a";'],
+            ["const value = 1;", "export default value;"],
+            ["const value = 1;", "export const result = value;"],
+            ["const value = 1;", "export function work() {}"],
+            ["const value = 1;", "export class Worker {}"],
+            ["const value = 1;", "export type Value = number;"],
+            ["const value = 1;", "export interface Config {}"],
+            ["const value = 1;", "export = value;"],
+            ["const value = 1;", "export as namespace Config;"]
+        ] as const
+    ).map(([previous, next]) => ({
+        code: `${previous}\n${next}`,
+        output: `${previous}\n\n${next}`,
         errors: [
             {
                 messageId: "expectedBlankLine"
             }
         ]
-    },
-    {
-        name: "a multiline export still requires a blank line before an ordinary statement",
-        code: 'export {\na\n} from "a";\nconst value = 1;',
-        output: 'export {\na\n} from "a";\n\nconst value = 1;',
-        errors: [
-            {
-                messageId: "expectedBlankLine"
-            }
-        ]
-    },
-    {
-        name: "a multiline export still requires a blank line before an import",
-        code: 'export {\na\n} from "a";\nimport {\nb\n} from "b";',
-        output: 'export {\na\n} from "a";\n\nimport {\nb\n} from "b";',
-        errors: [
-            {
-                messageId: "expectedBlankLine"
-            }
-        ]
-    },
-    {
-        name: "an ordinary multiline statement still requires a blank line before an export",
-        code: "const config = {\na: 1\n};\nexport {\nconfig\n};",
-        output: "const config = {\na: 1\n};\n\nexport {\nconfig\n};",
-        errors: [
-            {
-                messageId: "expectedBlankLine"
-            }
-        ]
-    }
+    }))
 ] as const;
 
 export { invalidCases };
