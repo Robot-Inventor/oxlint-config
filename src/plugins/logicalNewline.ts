@@ -10,6 +10,7 @@ import type { ESTree, Rule } from "@oxlint/plugins";
  * - Require a blank line after a guard clause group, before the next non-exit statement.
  * - Require a blank line after any other multiline statement (control-flow blocks, multiline
  *   declarations, long calls, etc.), because a multiline statement is treated as its own group.
+ * - Consecutive imports or consecutive exports form a single group, so blank lines are optional.
  * - A comment on its own line belongs to the following statement, so the blank line is required
  *   before the comment.
  * - Fine formatting such as indentation and consecutive blank lines is left to oxfmt.
@@ -32,6 +33,16 @@ const isExitGroupMember = (statement: ESTree.Statement): boolean => isPlainExit(
 
 const isMultiline = (statement: ESTree.Statement): boolean => statement.loc.start.line !== statement.loc.end.line;
 
+const isImport = (statement: ESTree.Statement): boolean =>
+    statement.type === "ImportDeclaration" || statement.type === "TSImportEqualsDeclaration";
+
+const isExport = (statement: ESTree.Statement): boolean =>
+    statement.type === "ExportNamedDeclaration" ||
+    statement.type === "ExportDefaultDeclaration" ||
+    statement.type === "ExportAllDeclaration" ||
+    statement.type === "TSExportAssignment" ||
+    statement.type === "TSNamespaceExportDeclaration";
+
 /*
  * The decision only involves the adjacent pair, so no group analysis is needed:
  * - A plain exit statement always follows a blank line, even right after guard clauses.
@@ -39,6 +50,8 @@ const isMultiline = (statement: ESTree.Statement): boolean => statement.loc.star
  * - The end of an exit group and the end of any other multiline statement start a new group.
  */
 const requiresBlankLine = (previous: ESTree.Statement, next: ESTree.Statement): boolean => {
+    if (isImport(previous) && isImport(next)) return false;
+    if (isExport(previous) && isExport(next)) return false;
     if (isPlainExit(next)) return true;
     if (isExitGroupMember(previous)) return !isExitGroupMember(next);
 

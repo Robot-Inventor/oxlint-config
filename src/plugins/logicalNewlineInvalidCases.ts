@@ -212,6 +212,66 @@ const invalidCases = [
                 messageId: "expectedBlankLine"
             }
         ]
+    },
+    {
+        name: "a multiline import still requires a blank line before an ordinary statement",
+        code: 'import {\na\n} from "a";\nconst value = a;',
+        output: 'import {\na\n} from "a";\n\nconst value = a;',
+        errors: [
+            {
+                messageId: "expectedBlankLine"
+            }
+        ]
+    },
+    {
+        name: "a multiline import still requires a blank line before an export",
+        code: 'import {\na\n} from "a";\nexport {\na\n};',
+        output: 'import {\na\n} from "a";\n\nexport {\na\n};',
+        errors: [
+            {
+                messageId: "expectedBlankLine"
+            }
+        ]
+    },
+    {
+        name: "an ordinary multiline statement still requires a blank line before an import",
+        code: 'const config = {\na: 1\n};\nimport {\nb\n} from "b";',
+        output: 'const config = {\na: 1\n};\n\nimport {\nb\n} from "b";',
+        errors: [
+            {
+                messageId: "expectedBlankLine"
+            }
+        ]
+    },
+    {
+        name: "a multiline export still requires a blank line before an ordinary statement",
+        code: 'export {\na\n} from "a";\nconst value = 1;',
+        output: 'export {\na\n} from "a";\n\nconst value = 1;',
+        errors: [
+            {
+                messageId: "expectedBlankLine"
+            }
+        ]
+    },
+    {
+        name: "a multiline export still requires a blank line before an import",
+        code: 'export {\na\n} from "a";\nimport {\nb\n} from "b";',
+        output: 'export {\na\n} from "a";\n\nimport {\nb\n} from "b";',
+        errors: [
+            {
+                messageId: "expectedBlankLine"
+            }
+        ]
+    },
+    {
+        name: "an ordinary multiline statement still requires a blank line before an export",
+        code: "const config = {\na: 1\n};\nexport {\nconfig\n};",
+        output: "const config = {\na: 1\n};\n\nexport {\nconfig\n};",
+        errors: [
+            {
+                messageId: "expectedBlankLine"
+            }
+        ]
     }
 ] as const;
 
