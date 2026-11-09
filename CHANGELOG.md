@@ -1,5 +1,23 @@
 # @robot-inventor/oxlint-config
 
+## 2.2.0
+
+### Minor Changes
+
+- [#100](https://github.com/Robot-Inventor/oxlint-config/pull/100) [`476262a`](https://github.com/Robot-Inventor/oxlint-config/commit/476262a9fb15d11f92d4978803041d04720da9f3) Thanks [@Robot-Inventor](https://github.com/Robot-Inventor)! - feat: enable `unicorn/prefer-node-protocol` rule
+
+### Patch Changes
+
+- [#95](https://github.com/Robot-Inventor/oxlint-config/pull/95) [`655f1fa`](https://github.com/Robot-Inventor/oxlint-config/commit/655f1fa5feb7232b36a2450972e1bf72b130fb66) Thanks [@renovate](https://github.com/apps/renovate)! - perf: replace oxlint-tsgolint with tsrs
+
+- [#98](https://github.com/Robot-Inventor/oxlint-config/pull/98) [`f2a42d4`](https://github.com/Robot-Inventor/oxlint-config/commit/f2a42d49a21bb1913cad4be23e8feb08f84bbc93) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-plugin-import-x to ^4.18.0
+
+- [#97](https://github.com/Robot-Inventor/oxlint-config/pull/97) [`e39d9cc`](https://github.com/Robot-Inventor/oxlint-config/commit/e39d9cc1160a06dd587b22d6c68133ac241667c2) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update oxlint monorepo to ^1.92.0
+
+- [#94](https://github.com/Robot-Inventor/oxlint-config/pull/94) [`b268e79`](https://github.com/Robot-Inventor/oxlint-config/commit/b268e79218ce4997e867f7f5112f9fa6f7c2bed0) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-plugin-jsdoc to ^65.4.5
+
+- [#93](https://github.com/Robot-Inventor/oxlint-config/pull/93) [`881bb28`](https://github.com/Robot-Inventor/oxlint-config/commit/881bb284659fb2328af6d9b2dcde25baaa708d47) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @next/eslint-plugin-next to ^16.4.5
+
 ## 2.1.1
 
 ### Patch Changes
