@@ -22,7 +22,6 @@
         "@robot-inventor/tsconfig-base": "^7.2.0",
         "knip": "^6.44.2",
         "oxfmt": "^0.77.0",
-        "typescript": "^7.0.2",
         "vitest": "^5.1.0",
       },
     },
