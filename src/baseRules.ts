@@ -414,7 +414,8 @@ const baseRules = {
             allowedNames: ["that"]
         }
     ],
-    "unicorn/no-useless-undefined": "error"
+    "unicorn/no-useless-undefined": "error",
+    "unicorn/prefer-node-protocol": "error"
 } as const satisfies NonNullable<OxlintConfig["rules"]>;
 
 const typescriptOverrides = {
