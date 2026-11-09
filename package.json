@@ -47,7 +47,7 @@
     "eslint-plugin-jsdoc": "^65.4.5",
     "oxlint": "^1.92.0",
     "oxlint-plugin-react-doctor": "^0.9.22",
-    "oxlint-tsgolint": "^7.0.2006"
+    "tsrs": "^0.23.0-ts7.1.0-beta"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.1",

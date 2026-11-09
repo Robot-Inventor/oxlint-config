@@ -1,5 +1,6 @@
 {
     "$schema": "https://unpkg.com/knip@6/schema.json",
     "project": ["src/**"],
-    "ignoreFiles": ["src/eslintCorePlugin.ts", "src/plugins/plugin.ts"]
+    "ignoreFiles": ["src/eslintCorePlugin.ts", "src/plugins/plugin.ts"],
+    "ignoreDependencies": ["tsrs"]
 }
