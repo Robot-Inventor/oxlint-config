@@ -30,8 +30,8 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "lint": "tsc --noEmit && knip-bun && oxlint src oxlint.config.ts",
+    "build": "tsrs -p tsconfig.build.json",
+    "lint": "tsrs --noEmit && knip-bun && oxlint src",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
     "ci:version": "changeset version",
@@ -47,7 +47,7 @@
     "eslint-plugin-jsdoc": "^65.4.5",
     "oxlint": "^1.92.0",
     "oxlint-plugin-react-doctor": "^0.9.22",
-    "oxlint-tsgolint": "^7.0.2006"
+    "tsrs": "^0.23.0-ts7.1.0-beta"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.1",
@@ -55,7 +55,6 @@
     "@robot-inventor/tsconfig-base": "^7.2.0",
     "knip": "^6.44.2",
     "oxfmt": "^0.77.0",
-    "typescript": "^7.0.2",
     "vitest": "^5.1.0"
   }
 }
